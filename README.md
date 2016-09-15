@@ -54,6 +54,13 @@ We could also have some variations, like stick to the schedule but, if debt is g
 
 All the “stick to the schedule” options can be changed to “Stick to the schedule but allow some slippage” options, where we define Tn_ideal as the ideal schedule, but we accept Tn_actual = Tn_ideal times S, where S is a slippage factor greater than 1. This would allow us to have a semi-flexible schedule, where we predefine it but can let it slip gradually over time if needed to keep technical debt under control.
 
+### Q&A
+1. Q: Can we define V in terms of man days of work per calendar day that can be used against Wa?  
+A: That's exactly what it is. Think of V as the amount of Wa that can be produced in a single calendar day.
+2. Q: Re "This assumes that V declines linearly with technical debt from initial to death level" => the reality is different obviously (and you don't discount it).  
+In practice a small amount of tech debt is physiological and very very hard to avoid, even in ideal conditions (it's because accidental complexity creeps in in many different ways, even where there is no external pressure, but it floods everything like a tsunami under pressure). Above a certain level, difficult to quantify, it becomes virulent and endemic and it slows everything down more than linearly. Beyond that there's only death and despair. :smile:  
+A: In the more general case, we can have V = P (1 - ( ( D - D0 ) / ( Dx - D0 ) )^n ), or even an exponential function
+
 # Setup
 Make sure that you have the latest sbt on your system:
 
