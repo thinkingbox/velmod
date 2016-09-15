@@ -25,7 +25,7 @@ The intent behind velmod is to take the planned project schedule as input, apply
 
 Given all this, at project start, define V = P
 
-As project proceeds, V = P (1 – (D – D0)/ (Dx – D0))
+As project proceeds, V = P (1 – (D – D0) / (Dx – D0))
 * At start, when D = D0, V = P
 * If D = Dx, then V = 0
 * If D becomes less then D0, then V will be greater than P.
@@ -56,6 +56,7 @@ All the “stick to the schedule” options can be changed to “Stick to the sc
 
 # Setup
 Make sure that you have the latest sbt on your system:
+
     SBT: http://www.scala-sbt.org/download.html
 
 
