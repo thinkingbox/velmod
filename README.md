@@ -16,6 +16,7 @@ The intent behind velmod is to take the planned project schedule as input, apply
   * Note that Wr = We * O * R, where:
     * O - Optimism factor, eg 1.1, if all our estimates are biased optimistic
     * R - Random variation – modelled as a chi-square with P90 value ~4, and P10 value ~0.5
+    ![chi-squared](./chi-squared.png "Chi-square distribution")
 * Wa – Actual work done on a task, man days. If this is less than Wr, technical debt increases. If this is greater than Wr, technical debt decreases.
 * D0 – Initial technical debt when project starts (this is 0 for a greenfield project)
 * D – Current technical debt, man days
