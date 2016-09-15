@@ -54,6 +54,17 @@ We could also have some variations, like stick to the schedule but, if debt is g
 
 All the “stick to the schedule” options can be changed to “Stick to the schedule but allow some slippage” options, where we define Tn_ideal as the ideal schedule, but we accept Tn_actual = Tn_ideal times S, where S is a slippage factor greater than 1. This would allow us to have a semi-flexible schedule, where we predefine it but can let it slip gradually over time if needed to keep technical debt under control.
 
+Note that:
+* Dx is a predetermined value related to how big is the project => we are deciding for now to set it to ΣWe * O * 75%, equal for example in the current data sample to 320 * 1.1 * 75% = 264, hence as soon as the technical debt reaches that quota the project is dead
+* In strategy 2 (stick to the schedule), we are going to limit the minimum amount of work that needs to be done on something to 25% of Wr => this means that regardless of how the schedule is set, Wa cannot be less than 25% of Wr
+
+Practically speaking, each task takes a time which is from the chi-square - a mean and a distribution. But, the tasks must be done in sequence (for the purpose of the model taking into account real-life parallel implementation doesn't really help, while complicating the model significantly).
+So, when scheduling the whole project, there is a completion date for task 1, task 2 (based on task 1 being completed and then task 2 being completed) and so on. 
+While the time for each task will be chi-square, the date that a given task is finished won't be, as it depends on the previous tasks. Effectively, this means combining N distributions through their partial sums, but due to impact of technical debt, while randomization in input is independent, task completion dates are not and we cannot combine them via the convolution of the individual distributions. For more information on this topic, see for example http://www.math.uah.edu/stat/sample/CLT.html 
+
+In the end, we want to run the simulation, say, 1000 times, and then getting a completion date distro from that for each task will be the easiest and most flexible to play with later. That way we can easily eventually do things like say "I want a 90% chance of hitting each of the first three milestones, and 25% chance of hitting all the ones after that".
+
+
 ### Q&A
 1. Q: Can we define V in terms of man days of work per calendar day that can be used against Wa?  
 A: That's exactly what it is. Think of V as the amount of Wa that can be produced in a single calendar day.
