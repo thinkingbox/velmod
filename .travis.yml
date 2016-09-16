@@ -3,3 +3,4 @@ scala:
   - 2.10.5
 jdk:
   - oraclejdk8
+sbtargs: -Duser.timezone=UTC

@@ -83,9 +83,17 @@ Make sure that you have the latest sbt on your system:
 * IntelliJ - IntelliJ has built in SBT support so when importing just make sure you import the SBT file directly and it will figure everything else out.
 * Eclipse - At the time of this writing, Eclipse does not understand SBT natively so make sure you use the `sbt eclipse` command from the root folder to create the necessary eclipse files.
 
+### Testing
+The tests are written assuming the default timezone set to UTC. We are using [joda-time's timezone management](http://www.joda.org/joda-time/userguide.html#TimeZones) (not JDK's default one). 
+In order to be consistent and avoid surprises across the board:
+* In your IDE set your ScalaTest default run configuration to define UTC as the default timezone by adding the following JVM property: `-Duser.timezone=UTC`
+* When you invoke sbt on the command line, make sure to pass `-Duser.timezone=UTC`
+
+Alternatively make sure that that's how your JDK  is setup, but I recommend against it, it's better to control these values explicitly. 
+When running the simulation currently no timezone is enforced, hence your local one is used by default. 
 
 # Usage
 All commands below are run from the root folder of the project.
 
-`sbt test` - Will run all tests for the application
+`sbt -Duser.timezone=UTC test` - Will run all tests for the application
 

@@ -22,8 +22,8 @@ class Strategy1ATest extends FunSuite with Matchers with Dates {
     run.time shouldBe 90
 
     val schedule = Schedule(date(2015, 1, 1), run)
-    schedule.end shouldBe dateTime(2015, 4, 1, 1)
-    schedule.delivery should contain(ScheduleEntry(dateTime(2015, 4, 1, 1), Strategy1(EstimateSample.Values(2),
+    schedule.end shouldBe dateTime(2015, 4, 1)
+    schedule.delivery should contain(ScheduleEntry(dateTime(2015, 4, 1), Strategy1(EstimateSample.Values(2),
                                                                                       programmers,
                                                                                       60)))
   }

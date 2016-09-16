@@ -83,6 +83,6 @@ class Strategy2ATest extends FunSuite with Matchers with Dates {
     schedule.delivery.map(_.elapsed.balance) shouldBe Vector(31.25, 56.25, 46.25)
     schedule.delivery.map(_.date) shouldBe Vector(dateTime(2015, 1, 19, 18),
                                                   dateTime(2015, 2, 13, 18),
-                                                  dateTime(2015, 3, 15, 19))
+                                                  dateTime(2015, 3, 15, 18))
   }
 }
