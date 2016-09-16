@@ -1,3 +1,5 @@
+Build status: [![Build Status](https://travis-ci.org/thinkingbox/velmod.png?branch=master)](https://travis-ci.org/thinkingbox/velmod) 
+
 # velmod
 The purpose of velmod is to build a Software Development Velocity Model that can be used to evaluate different scheduling strategies. The model takes into account aspects like randomly distributed estimation errors and technical debt, considering that when technical debt is too high, a project freezes to death. Different strategies are evaluated on a dataset sample.
 
