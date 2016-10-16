@@ -7,20 +7,17 @@ trait Elapsed {
   def completionFrom(start: DateTime) = start + (time*24*60).toInt.minutes
 }
 
+object Elapsed {
+  private case class PlainElapsed(time: Double) extends Elapsed {
+    override def toString = time.toString
+  }
+
+  def apply(value: Double): Elapsed = PlainElapsed(value)
+}
+
 trait CompositeElapsed[E <: Elapsed] extends Elapsed {
   def composition: Vector[E]
   override def time = composition.map(_.time).sum
-}
-
-object Elapsed {
-  def apply(value: Double): Elapsed = new Elapsed {
-    override def time: Double = value
-
-    override def hashCode = value.hashCode()
-    override def equals(other: Any) =
-      other != null && other.isInstanceOf[Elapsed] && other.asInstanceOf[Elapsed].time == time
-    override def toString = value.toString
-  }
 }
 
 object CompositeElapsed {
