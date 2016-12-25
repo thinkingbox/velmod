@@ -1,4 +1,4 @@
-Copyright 2016 Garner Distributed Workflow Inc
+Copyright 2016 Garner Distributed Workflow Inc and Piergiuliano Bossi
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
