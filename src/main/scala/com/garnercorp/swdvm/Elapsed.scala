@@ -1,10 +1,11 @@
 package com.garnercorp.swdvm
 
 import com.github.nscala_time.time.Imports._
+import org.joda.time.DateTimeConstants._
 
 trait Elapsed {
   def time: Double
-  def completionFrom(start: DateTime) = start + (time*24*60).toInt.minutes
+  def completionFrom(start: DateTime) = start + (time*MINUTES_PER_DAY).toInt.minutes
 }
 
 object Elapsed {
