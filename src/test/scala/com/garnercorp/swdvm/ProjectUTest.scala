@@ -9,11 +9,11 @@ class ProjectUTest extends FunSuite with Matchers with LoneElement {
   val Factor = 3.0
 
   test("run delivers every task based on history so far") {
-    val fibonacci: Strategy = (previousTaskRun: TaskRun, task: Task) =>
+    val summation: Strategy = (previousTaskRun: TaskRun, task: Task) =>
       (programmers: Double, factor: Double, variation: RandomVariation) =>
         TaskRun(task, 42, 42, 42, Programmers, 42, previousTaskRun.time + task.workRequired(), 42, 42)
 
-    val run = Project(Tasks: _*).run(fibonacci, 1, Programmers)
+    val run = Project(Tasks: _*).run(summation, 1, Programmers)
     run.loneElement.taskRuns.map(_.time) shouldBe Vector(1.0, 3.0, 6.0)
   }
 
