@@ -8,10 +8,11 @@ case class ProjectRun(programmers: Double,
 
   private def lastRun: TaskRun = taskRuns.lastOption.getOrElse(TaskRun(programmers, 0))
   def isDead = finalVelocity == 0
-  def isLate = !isDead && lastRun.balance < 0
+  def isLate = !isDead && finalBalance < 0
   def slippedTasks = taskRuns.count(_.isLate)
   def finalTechDebt = lastRun.techDebt
   def finalVelocity = lastRun.velocity
+  def finalBalance = lastRun.balance
 }
 
 object ProjectRun {

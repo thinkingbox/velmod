@@ -17,14 +17,17 @@ class ProjectRunUTest extends FunSuite with Matchers {
   }
   test("project run is late if final balance is negative") {
     val run1 = ProjectRun(TaskRun(1, 0, 1))
+    run1.finalBalance shouldBe 1
     run1 should not be 'late
     run1.slippedTasks shouldBe 0
 
     val run2 = ProjectRun(TaskRun(1, 0, 1), TaskRun(1, 0, -1))
+    run2.finalBalance shouldBe -1
     run2 shouldBe 'late
     run2.slippedTasks shouldBe 1
 
     val run3 = ProjectRun(TaskRun(1, 0, 1), TaskRun(1, 0, -1), TaskRun(1, 0, 0))
+    run3.finalBalance shouldBe 0
     run3 should not be 'late
     run3.slippedTasks shouldBe 1
   }
