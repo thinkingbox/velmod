@@ -13,8 +13,8 @@ case class Strategy2(previous: TaskRun,
     val candidate = if (timeRequired > desiredTime) {
       val missingTime = timeRequired - desiredTime
       desiredTime + math.min(previous.balance, missingTime)
-    } else if (previous.techDebt > 0)
-      desiredTime + math.min(previous.balance, 0)
+    } else if (previous.techDebt > 0 && !previous.isLate)
+      desiredTime
     else
       timeRequired
     math.max(candidate, 0.25 * timeRequired)
