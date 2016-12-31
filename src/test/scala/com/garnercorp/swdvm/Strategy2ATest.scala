@@ -46,7 +46,7 @@ class Strategy2ATest extends FunSuite with Matchers with Dates {
     task3ScheduleEntry.elapsed.velocity should be < 1.0
   }
 
-  test("with a 20% compressed schedule, the project cannot be extended because tech debt = death tech debt, " +
+  test("with a 20% compressed schedule, the project cannot be completed because tech debt = death tech debt, " +
        "and final velocity is 0") {
     val programmers = 4
     val desiredTimes = Map(Task1 -> Task1.estimate / programmers * .2,
