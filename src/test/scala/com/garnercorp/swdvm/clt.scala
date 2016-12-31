@@ -1,6 +1,6 @@
 import com.garnercorp.swdvm._
+import com.garnercorp.swdvm.statistics.{MonteCarlo, Percentiles}
 import com.github.nscala_time.time.Imports._
-import Sample._
 
 object CLT extends App {
 

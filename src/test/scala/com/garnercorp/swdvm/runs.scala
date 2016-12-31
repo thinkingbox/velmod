@@ -1,4 +1,5 @@
 import com.garnercorp.swdvm._
+import com.garnercorp.swdvm.statistics.{MonteCarlo, Percentiles, ProjectDistribution, TaskDistribution}
 import com.github.nscala_time.time.Imports._
 
 object Runs extends App with Dates {
@@ -48,7 +49,7 @@ object Runs extends App with Dates {
         println(s"$task:")
         println(s" - ends on ${entry.date} on avg")
         println(s" - distribution ${entry.elapsed.asInstanceOf[MonteCarlo[_]]}")
-        import Sample._
+        import com.garnercorp.swdvm.statistics.Sample._
         println(s" - dates ${
           Percentiles.onSchedule(entry.elapsed.percentiles, entry.date, entry.elapsed.time).asString
         }")

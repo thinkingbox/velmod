@@ -1,6 +1,7 @@
 package com.garnercorp.swdvm
 
-import breeze.stats.distributions.{Rand, RandBasis, ChiSquared}
+import breeze.stats.distributions.{ChiSquared, Rand, RandBasis}
+import com.garnercorp.swdvm.statistics.MonteCarlo
 
 trait RandomVariation {
   def next: Double

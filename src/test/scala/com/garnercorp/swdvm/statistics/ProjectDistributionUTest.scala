@@ -1,6 +1,7 @@
-package com.garnercorp.swdvm
+package com.garnercorp.swdvm.statistics
 
-import org.scalatest.{Matchers, FunSuite}
+import com.garnercorp.swdvm.{CompositeElapsed, Elapsed}
+import org.scalatest.{FunSuite, Matchers}
 
 class ProjectDistributionUTest extends FunSuite with Matchers {
   test("an empty distribution should have no task distribution") {

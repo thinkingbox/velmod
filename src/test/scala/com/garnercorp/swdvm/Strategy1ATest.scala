@@ -1,5 +1,6 @@
 package com.garnercorp.swdvm
 
+import com.garnercorp.swdvm.statistics.{ProjectDistribution, TaskDistribution}
 import org.scalatest.{FunSuite, Matchers}
 
 class Strategy1ATest extends FunSuite with Matchers with Dates {

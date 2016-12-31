@@ -1,4 +1,6 @@
-package com.garnercorp.swdvm
+package com.garnercorp.swdvm.statistics
+
+import com.garnercorp.swdvm.{CompositeElapsed, Elapsed}
 
 class TaskDistribution[E <: Elapsed](val iterations: Vector[E]) extends MonteCarlo(iterations) {
   override def hashCode = iterations.hashCode()

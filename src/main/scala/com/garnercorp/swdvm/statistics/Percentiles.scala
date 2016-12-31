@@ -1,4 +1,4 @@
-package com.garnercorp.swdvm
+package com.garnercorp.swdvm.statistics
 
 import com.github.nscala_time.time.Imports._
 

@@ -1,6 +1,6 @@
-package com.garnercorp.swdvm
+package com.garnercorp.swdvm.statistics
 
-import com.garnercorp.swdvm.Sample._
+import com.garnercorp.swdvm.Elapsed
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics
 
 import scala.collection.immutable.SortedMap

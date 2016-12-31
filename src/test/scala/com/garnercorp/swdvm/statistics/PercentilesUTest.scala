@@ -1,5 +1,6 @@
-package com.garnercorp.swdvm
+package com.garnercorp.swdvm.statistics
 
+import com.garnercorp.swdvm.Dates
 import org.scalatest.{FunSuite, Matchers}
 
 import scala.collection.immutable.{SortedMap => ImmutableSortedMap}
