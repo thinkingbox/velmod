@@ -12,7 +12,7 @@ class MonteCarloUTest extends FunSuite with Matchers with Dates {
       Elapsed(6.0)
     )
     montecarlo.avgTime shouldBe 5
-    montecarlo.stddev shouldBe math.sqrt(2)
+    montecarlo.stddev shouldBe math.sqrt(2) +- 0.01
   }
   test("calculate percentile distribution") {
     val montecarlo = MonteCarlo(
