@@ -27,10 +27,10 @@ class ProjectDistributionUTest extends FunSuite with Matchers {
     projectDistribution.composition.map(_.time) shouldBe Vector(2.5, 3.5, 4.5)
     projectDistribution.time shouldBe 10.5
   }
-  test("build task distribution") {
+  test("task distribution is built from individual runs by composing individual for every column") {
     val run1 = CompositeElapsed(Elapsed(1), Elapsed(2), Elapsed(3))
     val run2 = CompositeElapsed(Elapsed(4), Elapsed(5), Elapsed(6))
-    val distributions = run1.composition.zip(run2.composition).map(pair => Vector(pair._1, pair._2))
+    val distributions = run1.composition.zip(run2.composition).map(runs => Vector(runs._1, runs._2))
     val taskDistributions = distributions.map(new TaskDistribution(_))
     TaskDistribution.from(Vector(run1, run2)) shouldBe taskDistributions
   }
