@@ -3,6 +3,7 @@ package com.garnercorp.swdvm.statistics
 import com.github.nscala_time.time.Imports._
 
 import scala.collection.immutable.SortedMap
+import org.joda.time.DateTimeConstants._
 
 class Percentiles[T](val values: SortedMap[Int, T]) {
   def asString(implicit evaluation: Sample[T]) =
@@ -14,8 +15,10 @@ class Percentiles[T](val values: SortedMap[Int, T]) {
 }
 
 object Percentiles {
-  def onSchedule(percentiles: Percentiles[Double], end: DateTime, length: Double): Percentiles[DateTime] =
-    new Percentiles(percentiles.values.mapValues(time => end - ((length - time)*24*60).toInt.minutes))
+  def onSchedule(percentiles: Percentiles[Double], end: DateTime): Percentiles[DateTime] = {
+    val length = percentiles.values.values.last
+    new Percentiles(percentiles.values.mapValues(time => end - ((length - time) * MINUTES_PER_DAY).toInt.minutes))
+  }
 }
 
 trait Sample[T] {

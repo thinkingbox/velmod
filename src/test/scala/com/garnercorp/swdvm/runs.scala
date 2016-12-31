@@ -51,7 +51,7 @@ object Runs extends App with Dates {
         println(s" - distribution ${entry.elapsed.asInstanceOf[MonteCarlo[_]]}")
         import com.garnercorp.swdvm.statistics.Sample._
         println(s" - dates ${
-          Percentiles.onSchedule(entry.elapsed.percentiles, entry.date, entry.elapsed.time).asString
+          Percentiles.onSchedule(entry.elapsed.percentiles, entry.date).asString
         }")
       }
     })
