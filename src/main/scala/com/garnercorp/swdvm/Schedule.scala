@@ -12,6 +12,13 @@ case class Schedule[E <: Elapsed](start: DateTime, composite: CompositeElapsed[E
       ScheduleEntry(CompositeElapsed(slice: _*).completionFrom(start), slice.last)
     })
   }
+
+  override def toString: String = {
+    s"Start: ${start}\n" +
+      s"End: ${end}\n" +
+      s"Dates: ${composite.composition.foldLeft(Vector(start))(
+        (previousDates, elapsed) => previousDates :+ elapsed.completionFrom(previousDates.last))}"
+  }
 }
 
 case class ScheduleEntry[E <: Elapsed](date: DateTime, elapsed: E)
